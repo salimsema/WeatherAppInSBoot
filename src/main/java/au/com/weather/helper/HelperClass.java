@@ -1,7 +1,5 @@
 package au.com.weather.helper;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.MessageFormat;
@@ -12,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Properties;
 import java.util.Set;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.util.ResourceUtils;
 import org.springframework.web.client.RestTemplate;
 
 import au.com.weather.data.model.City;
@@ -45,8 +43,13 @@ public class HelperClass {
 		Properties prop = new Properties();
 		try {
 			//prop.load(HelperClass.class.getClassLoader().getResourceAsStream(propFile));
-			File file = ResourceUtils.getFile("classpath:"+propFile);
-            InputStream in = new FileInputStream(file);
+			//File file = ResourceUtils.getFile("classpath:"+propFile);
+			//InputStream in = new FileInputStream(file);
+			
+			ClassLoader cl = this.getClass().getClassLoader();
+			InputStream in = cl.getResourceAsStream(propFile);
+			
+            
             prop.load(in);
 			
 		} catch (IOException e) {
