@@ -42,14 +42,10 @@ public class HelperClass {
 	public Properties loadPropFile(String propFile) {
 		Properties prop = new Properties();
 		try {
-			//prop.load(HelperClass.class.getClassLoader().getResourceAsStream(propFile));
-			//File file = ResourceUtils.getFile("classpath:"+propFile);
-			//InputStream in = new FileInputStream(file);
-			
+
 			ClassLoader cl = this.getClass().getClassLoader();
 			InputStream in = cl.getResourceAsStream(propFile);
-			
-            
+
             prop.load(in);
 			
 		} catch (IOException e) {
