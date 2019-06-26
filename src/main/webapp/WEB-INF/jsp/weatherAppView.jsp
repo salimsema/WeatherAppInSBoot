@@ -22,7 +22,7 @@ table, th, td {
 </script>
 </head>
 <body>
-	<form id="form" action="/WeatherAppInSBoot/home" method="post">
+	<form id="form" action="/weatherapp-salim.herokuapp.com/home" method="post">
 		<select id="cityDropdown" name="cityDropdown" onchange="submitForm()">
 			<option value="NoCity">Select</option>
 			<c:forEach items="${cityList}" var="city">
