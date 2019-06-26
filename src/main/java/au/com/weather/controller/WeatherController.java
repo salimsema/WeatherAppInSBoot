@@ -36,7 +36,6 @@ public class WeatherController {
 	 */
 	@RequestMapping(value=DEFAULTACTION, method = RequestMethod.GET)
 	public String landingPage(ModelMap model) {
-		System.out.println("Inside landig page method");
 		OpenWeatherMap owm;
 		ArrayList<City> cityList = helperClass.populateCityDropDown();
 		model.addAttribute(CITYLIST, cityList); 
@@ -56,7 +55,6 @@ public class WeatherController {
 	 */
 	@PostMapping(value=ACTIONHOME)
 	public String postMethod(ModelMap model,@RequestParam(value=PARAMVALUECITYDROPDOWN, required=false) Integer cityCode) {
-		System.out.println("Inside post method");
 		ArrayList<City> cityList = helperClass.populateCityDropDown();
 	    model.addAttribute(CITYLIST, cityList);
 		OpenWeatherMap owm;
