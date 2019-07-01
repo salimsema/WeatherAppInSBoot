@@ -3,6 +3,7 @@ package au.com.weather.controller;
 import java.util.ArrayList;
 import java.util.Properties;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -27,7 +28,8 @@ public class WeatherController {
 	private final String PROPAPI = "apidetails.properties";
 	private final String DEFAULTCITYCODE = "defaultcitycode";
 	
-	HelperClass helperClass = new HelperClass();
+	@Autowired
+	HelperClass helperClass;
 	
 	/**
 	 * Method for landing page
