@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.Properties;
 import java.util.Set;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -35,9 +34,7 @@ public class HelperClass {
 	private final String TIMEZONE = "Australia/Sydney";
 	private final String SPEEDCONSTANT =  " km/h";
 	private final String TEMPCONSTANT = " \u00B0C";
-		
-	@Autowired
-	private Properties prop;
+
 	
 	/**
 	 * This method will load Properties file
@@ -45,7 +42,7 @@ public class HelperClass {
 	 * @return {@link Properties} will return object of Property file
 	 */
 	public Properties loadPropFile(String propFile) {
-		
+		Properties prop = new Properties();
 		try {
 
 			ClassLoader cl = this.getClass().getClassLoader();
